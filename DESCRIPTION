@@ -13,4 +13,4 @@ Imports: methods, rjson, httr, openssl, gmp
 NeedsCompilation: no
 Packaged: 2018-09-04 12:43:26 UTC; pfaffb
 Author: Rucknium [aut, cre], Bernhard Pfaff [aut, cre]
-Maintainer: Rucknium <Rucknium@protonmail.com">
+Maintainer: Rucknium <Rucknium@protonmail.com>
