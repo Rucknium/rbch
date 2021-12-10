@@ -66,7 +66,7 @@ getblock <- function(con, blockhash, verbosity = c("l1", "l0", "l2")){
                    l0 = 0L,
                    l1 = 1L,
                    l2 = 2L)
-    pl <- list(blockhash = bh, verbosity = verb)
+    pl <- unname(list(blockhash = bh, verbosity = verb))
     rpcpost(con, "getblock", pl)
 }
 #' RPC-JSON API: getblockcount
@@ -105,7 +105,7 @@ getblockcount <- function(con){
 #' @export
 getblockhash <- function(con, height){
     h <- as.integer(height)
-    rpcpost(con, "getblockhash", list(height = h))
+    rpcpost(con, "getblockhash", unname(list(height = h)))
 }
 #' RPC-JSON API: getchaintips
 #'
@@ -203,7 +203,7 @@ gettxoutsetinfo <- function(con){
 #' @export
 pruneblockchain <- function(con, height){
     rpcpost(con, "pruneblockchain",
-            list(height = height))
+            unname(list(height = height)))
 }
 #' RPC-JSON API: getblockheader
 #'
@@ -232,7 +232,7 @@ getblockheader <- function(con, hash, verbose = TRUE){
     hash <- as.character(hash)
     verbose <- as.logical(verbose)
     rpcpost(con, "getblockheader",
-            list(hash, verbose))
+            unname(list(hash, verbose)))
 }
 #' RPC-JSON API: getchaintxstats
 #'
@@ -258,11 +258,11 @@ getchaintxstats <- function(con, nblocks = NULL, blockhash = NULL){
     if (!is.null(nblocks)){
         p <- as.integer(nblocks)
         rpcpost(con, "getchaintxstats",
-                list(nblocks = p))
+                unname(list(nblocks = p)))
     } else if (!is.null(blockhash)){
         p <- as.character(blockhash)
         rpcpost(con, "getchaintxstats",
-                list(blockhash = p))
+            unname(list(nblocks = 4320, blockhash = p))) # 4320 is the default. 30 days of blocks
     } else {
         rpcpost(con, "getchaintxstats")
     }
@@ -288,7 +288,7 @@ getchaintxstats <- function(con, nblocks = NULL, blockhash = NULL){
 preciousblock <- function(con, blockhash){
     bh <- as.character(blockhash)
     rpcpost(con, "preciousblock",
-            list("blockhash" = bh))
+            unname(list("blockhash" = bh)))
 }
 #' RPC-JSON API: getmempoolentry
 #'
@@ -332,8 +332,8 @@ getmempoolentry <- function(con, txid){
 getmempoolancestors <- function(con, txid, verbose = FALSE){
     txid <- as.character(txid)
     rpcpost(con, "getmempoolancestors",
-            list(txid = txid,
-                 verbose = verbose))
+            unname(list(txid = txid,
+                 verbose = verbose)))
 }
 #' RPC-JSON API: getmempooldescendants
 #'
@@ -356,8 +356,8 @@ getmempoolancestors <- function(con, txid, verbose = FALSE){
 getmempooldescendants <- function(con, txid, verbose = FALSE){
     txid <- as.character(txid)
     rpcpost(con, "getmempooldescendants",
-            list(txid = txid,
-                 verbose = verbose))
+            unname(list(txid = txid,
+                 verbose = verbose)))
 }
 #' RPC-JSON API: getrawmempool
 #'
@@ -409,9 +409,9 @@ gettxout <- function(con, txid, n, incmempool = TRUE){
     n <- as.integer(n)
     incmempool <- as.logical(incmempool)
     rpcpost(con, "gettxout",
-            list(txid = txid,
+            unname(list(txid = txid,
                  n = n,
-                 include_mempool = incmempool))
+                 include_mempool = incmempool)))
 }
 #' RPC-JSON API: gettxoutproof
 #'
@@ -443,12 +443,12 @@ gettxoutproof <- function(con, txids, blockhash = NULL){
     txids <- matrix(txids, ncol = 1)
     if (is.null(blockhash)){
         ans <- rpcpost(con, "gettxoutproof",
-                       list(txids = as.list(txids)))
+                       unname(list(txids = as.list(txids))))
     } else {
         bh <- as.integer(blockhash)
         ans <- rpcpost(con, "gettxoutproof",
-                       list(txids = as.list(txids),
-                            blockhash = bh))
+                       unname(list(txids = as.list(txids),
+                            blockhash = bh)))
     }
     ans
 }

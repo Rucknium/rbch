@@ -26,7 +26,7 @@
 getrawtransaction <- function(con, txid, verbose = FALSE){
     txid <- as.character(txid)
     verb <- ifelse(verbose, 1L, 0L)
-    pl <- list(txid = txid, verbose = verb)
+    pl <- unname(list(txid = txid, verbose = verb))
     rpcpost(con, "getrawtransaction", pl)
 }
 #' RPC-JSON API: decoderawtransaction
@@ -49,5 +49,5 @@ getrawtransaction <- function(con, txid, verbose = FALSE){
 decoderawtransaction <- function(con, hexstring){
     hexstring <- as.character(hexstring)
     pl <- list(hexstring = hexstring)
-    rpcpost(con, "decoderawtransaction", pl)
+    rpcpost(con, "decoderawtransaction", unname(pl))
 }

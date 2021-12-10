@@ -112,7 +112,7 @@ getconnectioncount <- function(con){
 #' @export
 setnetworkactive <- function(con, state = TRUE){
     pl <- list(state = state)
-    rpcpost(con, "setnetworkactive", pl)
+    rpcpost(con, "setnetworkactive", unname(pl))
 }
 #' RPC-JSON API: listbanned
 #'

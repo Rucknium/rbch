@@ -2,7 +2,7 @@ Package: rbch
 Title: Bitcoin Cash (BCH) API
 Version: 0.1-5
 Authors@R: c(person(given = "Rucknium", email = "Rucknium@protonmail.com", role = c("aut", "cre")),
-             person("Bernhard", "Pfaff", email = "bernhard@pfaffikus.de", role = c("aut", "cre"))
+             person("Bernhard", "Pfaff", email = "bernhard@pfaffikus.de", role = c("aut", "cre")))
 Description: Implementation of the RPC-JSON API for Bitcoin Cash (BCH) and utility functions for address creation and content analysis of its blockchain.
 Depends: R (>= 3.4.0)
 License: GPL-3
