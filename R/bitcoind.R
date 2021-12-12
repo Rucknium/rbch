@@ -40,10 +40,16 @@ conrpc <- function(conf.file){
         warning("'testnet' not set, setting testnet to TRUE.\n")
         tnet <- TRUE
     }
-    if (isTRUE(tnet)){
-        curl <- "http://127.0.0.1:18332"
+    idx <- which(unlist(lapply(bconfl, function(x) x[1] == "rpcconnect")))
+    if (length(idx) > 0){
+        rpcconnect <- bconfl[[idx]][2]
     } else {
-        curl <- "http://127.0.0.1:8332"
+        rpcconnect <-"127.0.0.1"
+    }
+    if (isTRUE(tnet)){
+        curl <- paste0("http://", rpcconnect, ":18332")
+    } else {
+        curl <- paste0("http://", rpcconnect, ":8332")
     }
     new("CONRPC",
         rpcuse = valrpcuse,
