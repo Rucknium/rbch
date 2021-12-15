@@ -25,10 +25,13 @@ in case of no error \code{NULL}.}
 }}
 
 \seealso{
-Other bitcoind functions: \code{\link{CONRPC-class}},
-  \code{\link{NullOrCharacter-class}},
-  \code{\link{NullOrInteger-class}}, \code{\link{conrpc}},
-  \code{\link{rpcpost}}, \code{\link{startbtc}},
-  \code{\link{stopbtc}}
+Other bitcoind functions: 
+\code{\link{CONRPC-class}},
+\code{\link{NullOrCharacter-class}},
+\code{\link{NullOrInteger-class}},
+\code{\link{conrpc}()},
+\code{\link{rpcpost}()},
+\code{\link{startbtc}()},
+\code{\link{stopbtc}()}
 }
 \concept{bitcoind functions}

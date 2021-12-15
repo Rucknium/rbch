@@ -25,15 +25,16 @@ check sum, then the result is the \emph{Wallet Import Format},
 \url{https://en.bitcoin.it/wiki/Base58Check_encoding}
 }
 \seealso{
-Other BtcAdresses: \code{\link{BTCADR-class}},
-  \code{\link{PrivKey2PubKey}}, \code{\link{PrivKey2Wif}},
-  \code{\link{PubHash2BtcAdr}},
-  \code{\link{PubKey2PubHash}}, \code{\link{Wif2PrivKey}},
-  \code{\link{base58CheckDecode}}, \code{\link{concatHex}},
-  \code{\link{createBtcAdr}},
-  \code{\link{createPrivateKey}}, \code{\link{decodeHex}},
-  \code{\link{hash160}}, \code{\link{hash256}},
-  \code{\link{validBtcAdr}}
+Other BtcAdresses: 
+\code{\link{BTCADR-class}},
+\code{\link{PubHash2BtcAdr}()},
+\code{\link{PubKey2PubHash}()},
+\code{\link{base58CheckDecode}()},
+\code{\link{concatHex}()},
+\code{\link{decodeHex}()},
+\code{\link{hash160}()},
+\code{\link{hash256}()},
+\code{\link{validBtcAdr}()}
 }
 \author{
 Bernhard Pfaff

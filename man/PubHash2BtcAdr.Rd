@@ -20,15 +20,16 @@ hashed public key.
 \url{https://en.bitcoin.it/wiki/Address}
 }
 \seealso{
-Other BtcAdresses: \code{\link{BTCADR-class}},
-  \code{\link{PrivKey2PubKey}}, \code{\link{PrivKey2Wif}},
-  \code{\link{PubKey2PubHash}}, \code{\link{Wif2PrivKey}},
-  \code{\link{base58CheckDecode}},
-  \code{\link{base58CheckEncode}}, \code{\link{concatHex}},
-  \code{\link{createBtcAdr}},
-  \code{\link{createPrivateKey}}, \code{\link{decodeHex}},
-  \code{\link{hash160}}, \code{\link{hash256}},
-  \code{\link{validBtcAdr}}
+Other BtcAdresses: 
+\code{\link{BTCADR-class}},
+\code{\link{PubKey2PubHash}()},
+\code{\link{base58CheckDecode}()},
+\code{\link{base58CheckEncode}()},
+\code{\link{concatHex}()},
+\code{\link{decodeHex}()},
+\code{\link{hash160}()},
+\code{\link{hash256}()},
+\code{\link{validBtcAdr}()}
 }
 \author{
 Bernhard Pfaff

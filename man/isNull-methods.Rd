@@ -23,11 +23,14 @@ Checks whether an EC point does exist.
 \url{https://en.bitcoin.it/wiki/Secp256k1}
 }
 \seealso{
-Other EllipticCurve: \code{\link{ECPARAM-class}},
-  \code{\link{ECPOINT-class}},
-  \code{\link{EcparamOrNull-class}},
-  \code{\link{containsPoint}}, \code{\link{ecoperators}},
-  \code{\link{ecparam}}, \code{\link{ecpoint}}
+Other EllipticCurve: 
+\code{\link{ECPARAM-class}},
+\code{\link{ECPOINT-class}},
+\code{\link{EcparamOrNull-class}},
+\code{\link{containsPoint}()},
+\code{\link{ecoperators}},
+\code{\link{ecparam}()},
+\code{\link{ecpoint}()}
 }
 \author{
 Bernhard Pfaff

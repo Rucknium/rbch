@@ -34,7 +34,8 @@ hex-encoded data for 'txid'.
 \url{https://bitcoin.org/en/developer-reference#remote-procedure-calls-rpcs}
 }
 \seealso{
-Other RawTransactions RPCs: \code{\link{decoderawtransaction}}
+Other RawTransactions RPCs: 
+\code{\link{decoderawtransaction}()}
 }
 \author{
 Bernhard Pfaff

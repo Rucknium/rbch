@@ -19,26 +19,21 @@ This function concatenates two hex strings, provided without the \code{0x} prefi
 and returns a \code{list} object of the associated
 integers.
 }
-\examples{
-h1 <- "80"
-h2 <- createPrivateKey()
-concatHex(h1, h2)
-}
 \references{
 \url{https://en.bitcoin.it/wiki/Wallet_import_format},\cr
 \url{https://en.bitcoin.it/wiki/Address}
 }
 \seealso{
-Other BtcAdresses: \code{\link{BTCADR-class}},
-  \code{\link{PrivKey2PubKey}}, \code{\link{PrivKey2Wif}},
-  \code{\link{PubHash2BtcAdr}},
-  \code{\link{PubKey2PubHash}}, \code{\link{Wif2PrivKey}},
-  \code{\link{base58CheckDecode}},
-  \code{\link{base58CheckEncode}},
-  \code{\link{createBtcAdr}},
-  \code{\link{createPrivateKey}}, \code{\link{decodeHex}},
-  \code{\link{hash160}}, \code{\link{hash256}},
-  \code{\link{validBtcAdr}}
+Other BtcAdresses: 
+\code{\link{BTCADR-class}},
+\code{\link{PubHash2BtcAdr}()},
+\code{\link{PubKey2PubHash}()},
+\code{\link{base58CheckDecode}()},
+\code{\link{base58CheckEncode}()},
+\code{\link{decodeHex}()},
+\code{\link{hash160}()},
+\code{\link{hash256}()},
+\code{\link{validBtcAdr}()}
 }
 \author{
 Bernhard Pfaff

@@ -28,22 +28,28 @@ is at least 2 hours older than the provided timestamp.
 \url{https://bitcoin.org/en/developer-reference#remote-procedure-calls-rpcs}
 }
 \seealso{
-Other Blockchain RPCs: \code{\link{decodescript}},
-  \code{\link{getbestblockhash}},
-  \code{\link{getblockchaininfo}},
-  \code{\link{getblockcount}}, \code{\link{getblockhash}},
-  \code{\link{getblockheader}}, \code{\link{getblock}},
-  \code{\link{getchaintips}},
-  \code{\link{getchaintxstats}},
-  \code{\link{getdifficulty}},
-  \code{\link{getmempoolancestors}},
-  \code{\link{getmempooldescendants}},
-  \code{\link{getmempoolentry}},
-  \code{\link{getmempoolinfo}},
-  \code{\link{getrawmempool}}, \code{\link{gettxoutproof}},
-  \code{\link{gettxoutsetinfo}}, \code{\link{gettxout}},
-  \code{\link{preciousblock}}, \code{\link{verifychain}},
-  \code{\link{verifytxoutproof}}
+Other Blockchain RPCs: 
+\code{\link{decodescript}()},
+\code{\link{getbestblockhash}()},
+\code{\link{getblockchaininfo}()},
+\code{\link{getblockcount}()},
+\code{\link{getblockhash}()},
+\code{\link{getblockheader}()},
+\code{\link{getblock}()},
+\code{\link{getchaintips}()},
+\code{\link{getchaintxstats}()},
+\code{\link{getdifficulty}()},
+\code{\link{getmempoolancestors}()},
+\code{\link{getmempooldescendants}()},
+\code{\link{getmempoolentry}()},
+\code{\link{getmempoolinfo}()},
+\code{\link{getrawmempool}()},
+\code{\link{gettxoutproof}()},
+\code{\link{gettxoutsetinfo}()},
+\code{\link{gettxout}()},
+\code{\link{preciousblock}()},
+\code{\link{verifychain}()},
+\code{\link{verifytxoutproof}()}
 }
 \author{
 Bernhard Pfaff

@@ -20,11 +20,14 @@ A \code{list} object, coerced JSON answer from RPC.
 This function executes an RPC-JSON post.
 }
 \seealso{
-Other bitcoind functions: \code{\link{ANSRPC-class}},
-  \code{\link{CONRPC-class}},
-  \code{\link{NullOrCharacter-class}},
-  \code{\link{NullOrInteger-class}}, \code{\link{conrpc}},
-  \code{\link{startbtc}}, \code{\link{stopbtc}}
+Other bitcoind functions: 
+\code{\link{ANSRPC-class}},
+\code{\link{CONRPC-class}},
+\code{\link{NullOrCharacter-class}},
+\code{\link{NullOrInteger-class}},
+\code{\link{conrpc}()},
+\code{\link{startbtc}()},
+\code{\link{stopbtc}()}
 }
 \author{
 Bernhard Pfaff

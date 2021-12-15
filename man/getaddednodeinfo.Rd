@@ -4,7 +4,7 @@
 \alias{getaddednodeinfo}
 \title{RPC-JSON API: getaddednodeinfo}
 \usage{
-getaddednodeinfo(con, node = NULL)
+getaddednodeinfo(con, node = NULL, dns = FALSE)
 }
 \arguments{
 \item{con}{object of class \code{CONRPC}.}
@@ -25,12 +25,17 @@ are not listed here)
 \url{https://bitcoin.org/en/developer-reference#remote-procedure-calls-rpcs}
 }
 \seealso{
-Other Network RPCs: \code{\link{addnode}},
-  \code{\link{clearbanned}}, \code{\link{disconnectnode}},
-  \code{\link{getconnectioncount}},
-  \code{\link{getnettotals}}, \code{\link{getnetworkinfo}},
-  \code{\link{getpeerinfo}}, \code{\link{listbanned}},
-  \code{\link{ping}}, \code{\link{setnetworkactive}}
+Other Network RPCs: 
+\code{\link{addnode}()},
+\code{\link{clearbanned}()},
+\code{\link{disconnectnode}()},
+\code{\link{getconnectioncount}()},
+\code{\link{getnettotals}()},
+\code{\link{getnetworkinfo}()},
+\code{\link{getpeerinfo}()},
+\code{\link{listbanned}()},
+\code{\link{ping}()},
+\code{\link{setnetworkactive}()}
 }
 \author{
 Bernhard Pfaff

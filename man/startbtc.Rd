@@ -23,11 +23,14 @@ Hereby, the options: \code{rpcuser}, \code{rpcpassword} and
 \code{conf} are used in the call to \code{bitcoind}.
 }
 \seealso{
-Other bitcoind functions: \code{\link{ANSRPC-class}},
-  \code{\link{CONRPC-class}},
-  \code{\link{NullOrCharacter-class}},
-  \code{\link{NullOrInteger-class}}, \code{\link{conrpc}},
-  \code{\link{rpcpost}}, \code{\link{stopbtc}}
+Other bitcoind functions: 
+\code{\link{ANSRPC-class}},
+\code{\link{CONRPC-class}},
+\code{\link{NullOrCharacter-class}},
+\code{\link{NullOrInteger-class}},
+\code{\link{conrpc}()},
+\code{\link{rpcpost}()},
+\code{\link{stopbtc}()}
 }
 \author{
 Bernhard Pfaff

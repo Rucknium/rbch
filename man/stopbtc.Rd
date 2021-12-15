@@ -15,11 +15,14 @@ It calls \code{bitcoin-cli stop} \emph{via} the
 R function \code{system()}.
 }
 \seealso{
-Other bitcoind functions: \code{\link{ANSRPC-class}},
-  \code{\link{CONRPC-class}},
-  \code{\link{NullOrCharacter-class}},
-  \code{\link{NullOrInteger-class}}, \code{\link{conrpc}},
-  \code{\link{rpcpost}}, \code{\link{startbtc}}
+Other bitcoind functions: 
+\code{\link{ANSRPC-class}},
+\code{\link{CONRPC-class}},
+\code{\link{NullOrCharacter-class}},
+\code{\link{NullOrInteger-class}},
+\code{\link{conrpc}()},
+\code{\link{rpcpost}()},
+\code{\link{startbtc}()}
 }
 \author{
 Bernhard Pfaff

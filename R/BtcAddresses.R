@@ -1,136 +1,3 @@
-#' Creation of a private key
-#'
-#' Returns a random 256-bit private key in hex notation.
-#'
-#' @return \code{character}.
-#' @family BtcAdresses
-#' @author Bernhard Pfaff
-#' @references \url{https://en.bitcoin.it/wiki/Wallet_import_format},\cr
-#' \url{https://en.bitcoin.it/wiki/Address}
-#' @name createPrivateKey
-#' @aliases createPrivateKey
-#' @rdname createPrivateKey
-#' @examples
-#' createPrivateKey()
-#' @export
-createPrivateKey <- function(){
-    warning(paste0("\nFor exemplary purposes, only.\n",
-                   "Use at your own risk!\n"))
-    s <- "0123456789ABCDEF"
-    idx <- sample(1:16, 64, replace = TRUE)
-    pk <- sapply(idx, function(x) substr(s, x, x))
-    pk <- paste(pk, collapse = "")
-    pk
-}
-#' Create WIF from a private key
-#'
-#' Returns the corresponding WIF key from a private key
-#'
-#' @param privkey \code{character}, a private key.
-#' @param mainnet \code{logical}, whether the WIF should correspond
-#' to the mainnet or testnet.
-#'
-#' @return \code{character}, the WIF key
-#'
-#' @family BtcAdresses
-#' @author Bernhard Pfaff
-#' @references \url{https://en.bitcoin.it/wiki/Wallet_import_format},\cr
-#' \url{https://en.bitcoin.it/wiki/Address}
-#' @name PrivKey2Wif
-#' @aliases PrivKey2Wif
-#' @rdname PrivKey2Wif
-#' @examples
-#' pk <- createPrivateKey()
-#' PrivKey2Wif(pk)
-#' @export
-PrivKey2Wif <- function(privkey, mainnet = TRUE){
-    warning(paste0("\nFor exemplary purposes, only.\n",
-                   "Use at your own risk!\n"))
-    if (mainnet){
-        pke <- paste0("80", privkey)
-    } else {
-        pke <- paste0("EF", privkey)
-    }
-    privkeyext <- decodeHex(pke)
-    privkeyexth <- hash256(privkeyext)
-    checksum <- privkeyexth[1:4]
-    privkeyextcs <- c(privkeyext, checksum)
-    base58CheckEncode(privkeyextcs)
-}
-#' Create private key from WIF
-#'
-#' Returns the corresponding private key from a WIF key.
-#'
-#' @param wif \code{character}, a WIF key.
-#'
-#' @return \code{character}, the corresponding private key.
-#'
-#' @family BtcAdresses
-#' @author Bernhard Pfaff
-#' @references \url{https://en.bitcoin.it/wiki/Wallet_import_format},\cr
-#' \url{https://en.bitcoin.it/wiki/Address}
-#' @name Wif2PrivKey
-#' @aliases Wif2PrivKey
-#' @rdname Wif2PrivKey
-#' @examples
-#' pk1 <- createPrivateKey()
-#' wif <- PrivKey2Wif(pk1)
-#' pk2 <- Wif2PrivKey(wif)
-#' identical(pk1, pk2)
-#' @export
-Wif2PrivKey <- function(wif){
-    warning(paste0("\nFor exemplary purposes, only.\n",
-                   "Use at your own risk!\n"))
-    fc <- substr(wif, 1, 1)
-    if (!(fc %in% c("5", "9"))){
-        msg <- paste0("First character in WIF does neither\n",
-                      "correspond to mainnet nor testnet.\n")
-        stop(msg)
-    }
-    if (!identical(nchar(wif), 51L)){
-        stop("WIF must have a length of 51 characters.\n")
-    }
-    bytestring <- base58CheckDecode(wif)
-    n <- length(bytestring) - 4L
-    bytestringshort <- bytestring[1:n]
-    privkey <- bytestringshort[-1]
-    toupper(paste0(privkey, collapse = ""))
-}
-#' Create public key from private key
-#'
-#' This function creates the 512-bit public key corresponding
-#' to a private key.
-#'
-#' @param privkey \code{character}, the private key.
-#' @param mainnet \code{logical}, whether the WIF should correspond
-#' to the mainnet or testnet.
-#'
-#' @return \code{character}, the public key.
-#' @family BtcAdresses
-#' @author Bernhard Pfaff
-#' @references \url{https://en.bitcoin.it/wiki/Address}
-#' @name PrivKey2PubKey
-#' @aliases PrivKey2PubKey
-#' @rdname PrivKey2PubKey
-#' @export
-PrivKey2PubKey <- function(privkey, mainnet = TRUE){
-    warning(paste0("\nFor exemplary purposes, only.\n",
-                   "Use at your own risk!\n"))
-    pk <- paste0("0x", privkey, collapse = "")
-    pk <- gmp::as.bigz(pk)
-    p <- "0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEFFFFFC2F"
-    b <- "0x0000000000000000000000000000000000000000000000000000000000000007"
-    a <- "0x0000000000000000000000000000000000000000000000000000000000000000"
-    r <- "0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEBAAEDCE6AF48A03BBFD25E8CD0364141"
-    Gx <- "0x79BE667EF9DCBBAC55A06295CE870B07029BFCDB2DCE28D959F2815B16F81798"
-    Gy <- "0x483ada7726a3c4655da4fbfc0e1108a8fd17b448a68554199c47d08ffb10d4b8"
-    ec <- ecparam(p, a, b)
-    g <- ecpoint(ec, gmp::as.bigz(Gx), gmp::as.bigz(Gy), gmp::as.bigz(r))
-    ans <- g * pk
-    x <- as.character(ans@x, b = 16)
-    y <- as.character(ans@y, b = 16)
-    toupper(paste0("04", x, y, collapse = ""))
-}
 #' Create public key hash from 512-bit public key
 #'
 #' This function returns the associated public key hash
@@ -184,52 +51,6 @@ PubHash2BtcAdr <- function(pubhash){
     pubhashhex <- decodeHex(pubhash)
     base58CheckEncode(pubhashhex)
 }
-#' Create BTC addresses
-#'
-#' This function creates an object of S4-class \code{BTCADR}.
-#'
-#' @param privkey \code{character}, a private key.
-#' @param mainnet \code{logical}, for which net the keys should belong to.
-#'
-#' @return Object of S4-class \code{BTCADR}
-#' @family BtcAdresses
-#' @author Bernhard Pfaff
-#' @references \url{https://en.bitcoin.it/wiki/Address}
-#' @name createBtcAdr
-#' @aliases createBtcAdr
-#' @rdname createBtcAdr
-#' @export
-createBtcAdr <- function (privkey, mainnet = TRUE) {
-    warning(paste0("\nFor exemplary purposes, only.\n",
-                   "Use at your own risk!\n"))
-    pk <- sapply(seq(1, nchar(privkey), by = 2), function(x) substr(privkey,
-        x, x + 1))
-    if (mainnet) {
-        pke <- c("80", pk)
-    }
-    else {
-        pke <- c("ef", pk)
-    }
-    pke <- as.raw(strtoi(pke, base = 16L))
-    h <- hash256(pke)
-    checksum <- h[1:4]
-    pkecs <- c(pke, checksum)
-    wif <- base58CheckEncode(pkecs)
-    pubkey <- PrivKey2PubKey(privkey)
-    pub160 <- hash160(decodeHex(pubkey))
-    if (mainnet) {
-        pub160e <- c(decodeHex("00"), pub160)
-    }
-    else {
-        pub160e <- c(decodeHex("6f"), pub160)
-    }
-    cs <- hash256(pub160e)[1:4]
-    pubhash <- c(pub160e, cs)
-    btcadr <- base58CheckEncode(pubhash)
-    new("BTCADR", privkey = privkey, wif = wif, pubkey = pubkey,
-        pubhash = toupper(paste(pubhash, collapse = "")), btcadr = btcadr,
-        mainnet = mainnet)
-}
 #' Decoding of a hex string
 #'
 #' This function converts a hex string,, whereby the string must not
@@ -246,9 +67,6 @@ createBtcAdr <- function (privkey, mainnet = TRUE) {
 #' @name decodeHex
 #' @aliases decodeHex
 #' @rdname decodeHex
-#' @examples
-#' pk <- createPrivateKey()
-#' decodeHex(pk)
 #' @export
 decodeHex <- function(s){
     h <- sapply(seq(1, nchar(s), by = 2), function(x) substr(s, x, x + 1))
@@ -271,10 +89,6 @@ decodeHex <- function(s){
 #' @name concatHex
 #' @aliases concatHex
 #' @rdname concatHex
-#' @examples
-#' h1 <- "80"
-#' h2 <- createPrivateKey()
-#' concatHex(h1, h2)
 #' @export
 concatHex <- function(hex1, hex2){
     h1 <- decodeHex(hex1)

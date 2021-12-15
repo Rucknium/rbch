@@ -4,8 +4,7 @@
 \alias{utxoage}
 \title{Age of UTXOs}
 \usage{
-utxoage(con, txid, units = c("auto", "secs", "mins", "hours", "days",
-  "weeks"))
+utxoage(con, txid, units = c("auto", "secs", "mins", "hours", "days", "weeks"))
 }
 \arguments{
 \item{con}{\code{CONRPC}, configuration object.}
@@ -23,15 +22,23 @@ This function returns a \code{difftime} object measuring the elapsed time(s)
 between the UTXO(s) in a transaction and its input(s) (previous UTXO(s)).
 }
 \seealso{
-Other UtilityFuncs: \code{\link{bkfee}},
-  \code{\link{blockattime}}, \code{\link{blockstats}},
-  \code{\link{date2int}}, \code{\link{int2date}},
-  \code{\link{intMaxDay}}, \code{\link{intMinDay}},
-  \code{\link{intRangeDay}}, \code{\link{intRangePeriod}},
-  \code{\link{timeofblock}}, \code{\link{txfee}},
-  \code{\link{txids}}, \code{\link{txinids}},
-  \code{\link{txstats}}, \code{\link{utxotype}},
-  \code{\link{utxovalue}}
+Other UtilityFuncs: 
+\code{\link{bkfee}()},
+\code{\link{blockattime}()},
+\code{\link{blockstats}()},
+\code{\link{date2int}()},
+\code{\link{int2date}()},
+\code{\link{intMaxDay}()},
+\code{\link{intMinDay}()},
+\code{\link{intRangeDay}()},
+\code{\link{intRangePeriod}()},
+\code{\link{timeofblock}()},
+\code{\link{txfee}()},
+\code{\link{txids}()},
+\code{\link{txinids}()},
+\code{\link{txstats}()},
+\code{\link{utxotype}()},
+\code{\link{utxovalue}()}
 }
 \author{
 Bernhard Pfaff

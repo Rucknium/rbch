@@ -22,8 +22,9 @@ Returning information about RPC functions.
 \url{https://bitcoin.org/en/developer-reference#remote-procedure-calls-rpcs}
 }
 \seealso{
-Other Control RPCs: \code{\link{getinfo}},
-  \code{\link{getwalletinfo}}
+Other Control RPCs: 
+\code{\link{getinfo}()},
+\code{\link{getwalletinfo}()}
 }
 \author{
 Bernhard Pfaff

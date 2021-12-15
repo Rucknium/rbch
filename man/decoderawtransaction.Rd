@@ -23,7 +23,8 @@ hex-encoded transaction.
 \url{https://bitcoin.org/en/developer-reference#remote-procedure-calls-rpcs}
 }
 \seealso{
-Other RawTransactions RPCs: \code{\link{getrawtransaction}}
+Other RawTransactions RPCs: 
+\code{\link{getrawtransaction}()}
 }
 \author{
 Bernhard Pfaff
