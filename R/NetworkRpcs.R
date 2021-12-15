@@ -188,6 +188,7 @@ clearbanned <- function(con){
 #' @param con object of class \code{CONRPC}.
 #' @param node \code{character} the node (see \code{getpeerinfo()}
 #' for nodes).
+#' @param dns \code{logical} If FALSE, only a list of added nodes will be provided, otherwise connected information will also be available.
 #'
 #' @return A S4-object of class \code{ANSRPC}.
 #' @family Network RPCs

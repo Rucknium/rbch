@@ -11,6 +11,8 @@ getaddednodeinfo(con, node = NULL, dns = FALSE)
 
 \item{node}{\code{character} the node (see \code{getpeerinfo()}
 for nodes).}
+
+\item{dns}{\code{logical} If FALSE, only a list of added nodes will be provided, otherwise connected information will also be available.}
 }
 \value{
 A S4-object of class \code{ANSRPC}.
