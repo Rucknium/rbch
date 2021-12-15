@@ -158,7 +158,7 @@ addnode <- function(con, node, command = c("add", "remove", "onetry")){
     node <- as.character(node)
     command <- match.arg(command)
     pl <- list(node = node, command = command)
-    rpcpost(con, "addnode", pl)
+    rpcpost(con, "addnode", unname(pl))
 }
 #' RPC-JSON API: clearbanned
 #'
@@ -199,13 +199,13 @@ clearbanned <- function(con){
 #' @aliases getaddednodeinfo
 #' @rdname getaddednodeinfo
 #' @export
-getaddednodeinfo <- function(con, node = NULL){
+getaddednodeinfo <- function(con, node = NULL, dns = FALSE){
     if (is.null(node)){
-        return(rpcpost(con, "getaddednodeinfo"))
+        return(rpcpost(con, "getaddednodeinfo", list(dns)))
     } else {
         node <- as.character(node)[1]
-        pl <- list(node = node)
-        return(rpcpost(con, "getaddednodeinfo", pl))
+        pl <- list(dns = dns, node = node)
+        return(rpcpost(con, "getaddednodeinfo", unname(pl)))
     }
 }
 #' RPC-JSON API: disconnectnode
@@ -247,5 +247,5 @@ disconnectnode <- function(con, address = NULL, nodeid = NULL){
         address <- as.character(address)
         pl <- list(address = address)
     }
-    rpcpost(con, "disconnectnode", pl)
+    rpcpost(con, "disconnectnode", unname(pl))
 }
