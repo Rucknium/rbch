@@ -2,7 +2,7 @@
 % Please edit documentation in R/AllClasses.R
 \name{validBtcAdr}
 \alias{validBtcAdr}
-\title{Validate S4-class BTCADR}
+\title{Validate S4-class BTCADR (BTC alias)}
 \usage{
 validBtcAdr(object)
 }
@@ -20,18 +20,20 @@ the correspondence of the checksums.
 \url{https://en.bitcoin.it/wiki/Address}
 }
 \seealso{
-Other BtcAdresses: 
+Other BchAdresses: 
+\code{\link{BCHADR-class}},
 \code{\link{BTCADR-class}},
-\code{\link{PubHash2BtcAdr}()},
+\code{\link{PubHash2BchAdr}()},
 \code{\link{PubKey2PubHash}()},
 \code{\link{base58CheckDecode}()},
 \code{\link{base58CheckEncode}()},
 \code{\link{concatHex}()},
 \code{\link{decodeHex}()},
 \code{\link{hash160}()},
-\code{\link{hash256}()}
+\code{\link{hash256}()},
+\code{\link{validBchAdr}()}
 }
 \author{
 Bernhard Pfaff
 }
-\concept{BtcAdresses}
+\concept{BchAdresses}

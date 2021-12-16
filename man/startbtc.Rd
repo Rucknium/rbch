@@ -2,7 +2,7 @@
 % Please edit documentation in R/bitcoind.R
 \name{startbtc}
 \alias{startbtc}
-\title{Start bitcoind server process}
+\title{Start bitcoind server process (BTC alias)}
 \usage{
 startbtc(confbtc)
 }
@@ -13,9 +13,7 @@ startbtc(confbtc)
 \code{NULL}
 }
 \description{
-This function does start the bitcoind-server process.
-It should only be called when no suitable RPC-JSON
-process is running
+This function is an alias of startbch
 }
 \details{
 The process is started by calling \code{system()}.
@@ -30,6 +28,8 @@ Other bitcoind functions:
 \code{\link{NullOrInteger-class}},
 \code{\link{conrpc}()},
 \code{\link{rpcpost}()},
+\code{\link{startbch}()},
+\code{\link{stopbch}()},
 \code{\link{stopbtc}()}
 }
 \author{

@@ -2,7 +2,7 @@
 % Please edit documentation in R/BtcAddresses.R
 \name{PubHash2BtcAdr}
 \alias{PubHash2BtcAdr}
-\title{Create BTC address from public key hash}
+\title{Create BCH address from public key hash (BTC alias)}
 \usage{
 PubHash2BtcAdr(pubhash)
 }
@@ -18,18 +18,6 @@ hashed public key.
 }
 \references{
 \url{https://en.bitcoin.it/wiki/Address}
-}
-\seealso{
-Other BtcAdresses: 
-\code{\link{BTCADR-class}},
-\code{\link{PubKey2PubHash}()},
-\code{\link{base58CheckDecode}()},
-\code{\link{base58CheckEncode}()},
-\code{\link{concatHex}()},
-\code{\link{decodeHex}()},
-\code{\link{hash160}()},
-\code{\link{hash256}()},
-\code{\link{validBtcAdr}()}
 }
 \author{
 Bernhard Pfaff

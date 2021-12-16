@@ -324,7 +324,7 @@ txfee <- function(con, txid){
 #'
 #' This function returns the fee of the coinbase transaction.
 #' Hereby, the mining reward has been deducted.
-#' Initially, the mining reward was 50 BTC and is halved every
+#' Initially, the mining reward was 50 BCH and is halved every
 #' 210,000 blocks.
 #'
 #' @param con \code{CONRPC}, configuration object.

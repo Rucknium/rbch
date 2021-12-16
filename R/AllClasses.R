@@ -123,23 +123,23 @@ setClass("ECPOINT", representation = list(
                         y = "bigz",
                         r = "bigz"))
 
-#' Validate S4-class BTCADR
+#' Validate S4-class BCHADR
 #'
 #' This function validates objects of S4-class
-#' \code{BTCADR}. Hereby, checks are conducted
+#' \code{BCHADR}. Hereby, checks are conducted
 #' with respect to the first character of the addresses;
 #' their consistency with the net version and
 #' the correspondence of the checksums.
 #'
-#' @param object \code{BTCADR} object
+#' @param object \code{BCHADR} object
 #'
-#' @family BtcAdresses
+#' @family BchAdresses
 #' @author Bernhard Pfaff
 #' @references \url{https://en.bitcoin.it/wiki/Address}
-#' @name validBtcAdr 
-#' @rdname validBtcAdr
+#' @name validBchAdr 
+#' @rdname validBchAdr
 #' @export
-validBtcAdr <- function(object){
+validBchAdr <- function(object){
     errors <- character()
     s <- unlist(strsplit("0123456789ABCDEF", ""))
     # checks on public key
@@ -176,10 +176,10 @@ validBtcAdr <- function(object){
                       "'0123456789ABCDEF'\n")
         errors <- c(errors, msg)
     }
-    # checks on BTC address
-    lbtcadr <- nchar(object@btcadr) - 1L
-    if ( (lbtcadr < 25) || (lbtcadr > 33)){
-        msg <- paste0("BTC address must contain 25-33 symbols\n",
+    # checks on BCH address
+    lbchadr <- nchar(object@bchadr) - 1L
+    if ( (lbchadr < 25) || (lbchadr > 33)){
+        msg <- paste0("BCH address must contain 25-33 symbols\n",
                       "excluding leading byte (1 or n/m).\n")
         errors <- c(errors, msg)
     }
@@ -190,7 +190,48 @@ validBtcAdr <- function(object){
         return(cat(errors))
     }
 }
-#' @title S4 class BTCADR
+#' Validate S4-class BTCADR (BTC alias)
+#'
+#' This function validates objects of S4-class
+#' \code{BTCADR}. Hereby, checks are conducted
+#' with respect to the first character of the addresses;
+#' their consistency with the net version and
+#' the correspondence of the checksums.
+#'
+#' @param object \code{BTCADR} object
+#'
+#' @family BchAdresses
+#' @author Bernhard Pfaff
+#' @references \url{https://en.bitcoin.it/wiki/Address}
+#' @name validBtcAdr 
+#' @rdname validBtcAdr
+#' @export
+validBtcAdr <- function(object){
+    validBchAdr(object)
+}
+#' @title S4 class BCHADR
+#'
+#' @description
+#' S4-class for BCH addresses
+#' @slot pubkey \code{character}, the 512-bit public key.
+#' @slot pubhash \code{character}, the hashed public key.
+#' @slot bchadr \code{character}, the BCH address.
+#' @slot mainnet \code{logical}, whether mainnet or testnet.
+#'
+#' @family BchAdresses
+#' @author Bernhard Pfaff
+#' @references \url{https://en.bitcoin.it/wiki/Address}
+#' @name BCHADR-class 
+#' @rdname BCHADR-class
+#' @export
+setClass("BCHADR",
+         representation = list(
+             pubkey = "character",
+             pubhash = "character",
+             bchadr = "character",
+             mainnet = "logical"),
+         validity = validBchAdr)
+#' @title S4 class BTCADR (BTC alias)
 #'
 #' @description
 #' S4-class for BTC addresses
@@ -199,19 +240,19 @@ validBtcAdr <- function(object){
 #' @slot btcadr \code{character}, the BTC address.
 #' @slot mainnet \code{logical}, whether mainnet or testnet.
 #'
-#' @family BtcAdresses
+#' @family BchAdresses
 #' @author Bernhard Pfaff
 #' @references \url{https://en.bitcoin.it/wiki/Address}
 #' @name BTCADR-class 
 #' @rdname BTCADR-class
 #' @export
 setClass("BTCADR",
-         representation = list(
-             pubkey = "character",
-             pubhash = "character",
-             btcadr = "character",
-             mainnet = "logical"),
-         validity = validBtcAdr)
+    representation = list(
+        pubkey = "character",
+        pubhash = "character",
+        btcadr = "character",
+        mainnet = "logical"),
+    validity = validBtcAdr)
 #' @title show-methods
 #'
 #' @description Defined \code{show}-methods for S4-classes.
@@ -241,26 +282,39 @@ setMethod("show", signature = "ANSRPC",
               }
           })
 #' @rdname show-methods
+#' @aliases show,BCHADR-method
+setMethod("show", signature = "BCHADR",
+    definition = function(object){
+        net <- "Testnet"
+        if (object@mainnet){
+            net <- "Mainnet"
+        }
+        cat(paste(net,
+            "bitcoin addresses:\n"))
+        cat(paste("512-bit public key:\n",
+            object@pubkey, "\n"))
+        cat(paste("Hashed public key:\n",
+            object@pubhash, "\n"))
+        cat(paste("BCH address:\n",
+            object@bchadr, "\n"))
+    })
+#' @rdname show-methods
 #' @aliases show,BTCADR-method
 setMethod("show", signature = "BTCADR",
-          definition = function(object){
-              net <- "Testnet"
-              if (object@mainnet){
-                  net <- "Mainnet"
-              }
-              cat(paste(net,
-                        "bitcoin addresses:\n"))
-              cat(paste("Private key:\n",
-                        object@privkey, "\n"))
-              cat(paste("Wallet import format:\n",
-                        object@wif, "\n"))
-              cat(paste("512-bit public key:\n",
-                        object@pubkey, "\n"))
-              cat(paste("Hashed public key:\n",
-                        object@pubhash, "\n"))
-              cat(paste("BTC address:\n",
-                        object@btcadr, "\n"))
-})
+    definition = function(object){
+        net <- "Testnet"
+        if (object@mainnet){
+            net <- "Mainnet"
+        }
+        cat(paste(net,
+            "bitcoin addresses:\n"))
+        cat(paste("512-bit public key:\n",
+            object@pubkey, "\n"))
+        cat(paste("Hashed public key:\n",
+            object@pubhash, "\n"))
+        cat(paste("BCH address:\n",
+            object@btcadr, "\n"))
+    })
 #' @rdname show-methods
 #' @aliases show,ECPARAM-method
 setMethod("show", signature = "ECPARAM",

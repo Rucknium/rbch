@@ -4,11 +4,14 @@
 \name{show}
 \alias{show}
 \alias{show,ANSRPC-method}
+\alias{show,BCHADR-method}
 \alias{show,BTCADR-method}
 \alias{show,ECPARAM-method}
 \title{show-methods}
 \usage{
 \S4method{show}{ANSRPC}(object)
+
+\S4method{show}{BCHADR}(object)
 
 \S4method{show}{BTCADR}(object)
 

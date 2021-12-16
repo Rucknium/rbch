@@ -14,7 +14,9 @@ Other bitcoind functions:
 \code{\link{NullOrCharacter-class}},
 \code{\link{conrpc}()},
 \code{\link{rpcpost}()},
+\code{\link{startbch}()},
 \code{\link{startbtc}()},
+\code{\link{stopbch}()},
 \code{\link{stopbtc}()}
 }
 \concept{bitcoind functions}

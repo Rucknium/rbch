@@ -2,7 +2,7 @@
 % Please edit documentation in R/bitcoind.R
 \name{stopbtc}
 \alias{stopbtc}
-\title{Stop bitcoind server process}
+\title{Stop bitcoind server process (BTC alias)}
 \usage{
 stopbtc(confbtc)
 }
@@ -22,7 +22,9 @@ Other bitcoind functions:
 \code{\link{NullOrInteger-class}},
 \code{\link{conrpc}()},
 \code{\link{rpcpost}()},
-\code{\link{startbtc}()}
+\code{\link{startbch}()},
+\code{\link{startbtc}()},
+\code{\link{stopbch}()}
 }
 \author{
 Bernhard Pfaff

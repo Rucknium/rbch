@@ -3,7 +3,7 @@
 \docType{class}
 \name{BTCADR-class}
 \alias{BTCADR-class}
-\title{S4 class BTCADR}
+\title{S4 class BTCADR (BTC alias)}
 \description{
 S4-class for BTC addresses
 }
@@ -23,8 +23,9 @@ S4-class for BTC addresses
 \url{https://en.bitcoin.it/wiki/Address}
 }
 \seealso{
-Other BtcAdresses: 
-\code{\link{PubHash2BtcAdr}()},
+Other BchAdresses: 
+\code{\link{BCHADR-class}},
+\code{\link{PubHash2BchAdr}()},
 \code{\link{PubKey2PubHash}()},
 \code{\link{base58CheckDecode}()},
 \code{\link{base58CheckEncode}()},
@@ -32,9 +33,10 @@ Other BtcAdresses:
 \code{\link{decodeHex}()},
 \code{\link{hash160}()},
 \code{\link{hash256}()},
+\code{\link{validBchAdr}()},
 \code{\link{validBtcAdr}()}
 }
 \author{
 Bernhard Pfaff
 }
-\concept{BtcAdresses}
+\concept{BchAdresses}

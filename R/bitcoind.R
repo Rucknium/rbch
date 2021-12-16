@@ -23,8 +23,8 @@ conrpc <- function(conf.file){
     if (length(idx) > 0){
         valrpcuse <- bconfl[[idx]][2]
     } else {
-        warning("'rpcuser' not set, using 'rbtc'.\n")
-        valrpcuse <- "rbtc"
+        warning("'rpcuser' not set, using 'rbch'.\n")
+        valrpcuse <- "rbch"
     }
     idx <- which(unlist(lapply(bconfl, function(x) x[1] == "rpcpassword")))
     if (length(idx) > 0){
@@ -64,26 +64,27 @@ conrpc <- function(conf.file){
 #' It should only be called when no suitable RPC-JSON
 #' process is running
 #'
-#' @param confbtc \code{CONRPC} object, returned from \code{conrpc()}.
+#' @param confbch \code{CONRPC} object, returned from \code{conrpc()}.
 #'
 #' @details The process is started by calling \code{system()}.
 #' Hereby, the options: \code{rpcuser}, \code{rpcpassword} and
 #' \code{conf} are used in the call to \code{bitcoind}.
-#'
+#' 
+#' @param confbch \code{CONRPC} object, returned from \code{conrpc()}.
 #' @author Bernhard Pfaff
 #' @return \code{NULL}
 #' @family bitcoind functions
-#' @name startbtc
-#' @aliases startbtc
-#' @rdname startbtc
+#' @name startbch
+#' @aliases startbch
+#' @rdname startbch
 #' @export
 #'
-startbtc <- function(confbtc){
-    stopifnot(class(confbtc) == "CONRPC")
-    rpcuse <- slot(confbtc, "rpcuse")
-    rpcpwd <- slot(confbtc, "rpcpwd")
-    config <- slot(confbtc, "config")
-    tnet <- slot(confbtc, "testnet")
+startbch <- function(confbch){
+    stopifnot(class(confbch) == "CONRPC")
+    rpcuse <- slot(confbch, "rpcuse")
+    rpcpwd <- slot(confbch, "rpcpwd")
+    config <- slot(confbch, "config")
+    tnet <- slot(confbch, "testnet")
     if (isTRUE(tnet)){
         strcmd <- paste("bitcoind -daemon -testnet -rpcuser=", rpcuse,
                         " -rpcpassword=", rpcpwd,
@@ -98,7 +99,61 @@ startbtc <- function(confbtc){
     system(strcmd)
     NULL
 }
+#' Start bitcoind server process (BTC alias)
+#'
+#' This function is an alias of startbch
+#'
+#' @param confbtc \code{CONRPC} object, returned from \code{conrpc()}.
+#'
+#' @details The process is started by calling \code{system()}.
+#' Hereby, the options: \code{rpcuser}, \code{rpcpassword} and
+#' \code{conf} are used in the call to \code{bitcoind}.
+#'
+#' @param confbtc \code{CONRPC} object, returned from \code{conrpc()}.
+#' @author Bernhard Pfaff
+#' @return \code{NULL}
+#' @family bitcoind functions
+#' @name startbtc
+#' @aliases startbtc
+#' @rdname startbtc
+#' @export
+#'
+startbtc <- function(confbtc){
+    startbch(confbtc)
+    NULL
+}
 #' Stop bitcoind server process
+#'
+#' This function stops a running bitcoind process.
+#' It calls \code{bitcoin-cli stop} \emph{via} the
+#' R function \code{system()}.
+#'
+#' @param confbch \code{CONRPC} object, returned from \code{conrpc()}.
+#'
+#' @return NULL
+#' @author Bernhard Pfaff
+#' @family bitcoind functions
+#' @name stopbch
+#' @aliases stopbch
+#' @rdname stopbch
+#' @export
+#'
+stopbch <- function(confbch){
+    stopifnot(class(confbch) == "CONRPC")
+    curl <- slot(confbch, "url")
+    ans <- POST(curl,
+                authenticate(user = slot(confbch, "rpcuse"),
+                             password = slot(confbch, "rpcpwd"),
+                             type = "basic"),
+                body = list(jsonrpc = "1.0",
+                            id = "curltest",
+                            method = "stop",
+                            params = c()),
+                encode = "json")
+    stop_for_status(ans)
+    NULL
+}
+#' Stop bitcoind server process (BTC alias)
 #'
 #' This function stops a running bitcoind process.
 #' It calls \code{bitcoin-cli stop} \emph{via} the
@@ -115,19 +170,7 @@ startbtc <- function(confbtc){
 #' @export
 #'
 stopbtc <- function(confbtc){
-    stopifnot(class(confbtc) == "CONRPC")
-    curl <- slot(confbtc, "url")
-    ans <- POST(curl,
-                authenticate(user = slot(confbtc, "rpcuse"),
-                             password = slot(confbtc, "rpcpwd"),
-                             type = "basic"),
-                body = list(jsonrpc = "1.0",
-                            id = "curltest",
-                            method = "stop",
-                            params = c()),
-                encode = "json")
-    stop_for_status(ans)
-    NULL
+    stopbch(confbtc)
 }
 #' HTTP post of RPC-JSON
 #'
@@ -148,7 +191,7 @@ stopbtc <- function(confbtc){
 rpcpost <- function(con, api, plist = list()){
     stopifnot(class(con) == "CONRPC")
     api <- as.character(api)
-    pid <- paste("rbtc", api, sep = "-")
+    pid <- paste("rbch", api, sep = "-")
     ans <- POST(slot(con, "url"),
                 authenticate(user = slot(con, "rpcuse"),
                              password = slot(con, "rpcpwd"),

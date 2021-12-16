@@ -2,7 +2,7 @@
 % Please edit documentation in R/BtcAddresses.R
 \name{hash160}
 \alias{hash160}
-\title{BTC hash160}
+\title{BCH hash160}
 \usage{
 hash160(d)
 }
@@ -21,18 +21,20 @@ first and then to the resulting hash the \code{ripemd160} algorithm.
 \url{https://en.bitcoin.it/wiki/Address}
 }
 \seealso{
-Other BtcAdresses: 
+Other BchAdresses: 
+\code{\link{BCHADR-class}},
 \code{\link{BTCADR-class}},
-\code{\link{PubHash2BtcAdr}()},
+\code{\link{PubHash2BchAdr}()},
 \code{\link{PubKey2PubHash}()},
 \code{\link{base58CheckDecode}()},
 \code{\link{base58CheckEncode}()},
 \code{\link{concatHex}()},
 \code{\link{decodeHex}()},
 \code{\link{hash256}()},
+\code{\link{validBchAdr}()},
 \code{\link{validBtcAdr}()}
 }
 \author{
 Bernhard Pfaff
 }
-\concept{BtcAdresses}
+\concept{BchAdresses}

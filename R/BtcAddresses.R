@@ -8,7 +8,7 @@
 #' to the mainnet or testnet.
 #'
 #' @return \code{character}, the hash of a public key
-#' @family BtcAdresses
+#' @family BchAdresses
 #' @author Bernhard Pfaff
 #' @references \url{https://en.bitcoin.it/wiki/Address}
 #' @name PubKey2PubHash
@@ -30,7 +30,28 @@ PubKey2PubHash <- function(pubkey, mainnet = TRUE){
                    collapse = "")
             )
 }
-#' Create BTC address from public key hash
+#' Create BCH address from public key hash
+#'
+#' This function returns the corresponding BCH address from a
+#' hashed public key.
+#'
+#' @param pubhash \code{character}, the public key hash.
+#'
+#' @return \code{character}, the BCH address
+#' @family BchAdresses
+#' @author Bernhard Pfaff
+#' @references \url{https://en.bitcoin.it/wiki/Address}
+#' @name PubHash2BchAdr
+#' @aliases PubHash2BchAdr
+#' @rdname PubHash2BchAdr
+#' @export
+PubHash2BchAdr <- function(pubhash){
+    warning(paste0("\nFor exemplary purposes, only.\n",
+        "Use at your own risk!\n"))
+    pubhashhex <- decodeHex(pubhash)
+    base58CheckEncode(pubhashhex)
+}
+#' Create BCH address from public key hash (BTC alias)
 #'
 #' This function returns the corresponding BTC address from a
 #' hashed public key.
@@ -46,10 +67,7 @@ PubKey2PubHash <- function(pubkey, mainnet = TRUE){
 #' @rdname PubHash2BtcAdr
 #' @export
 PubHash2BtcAdr <- function(pubhash){
-    warning(paste0("\nFor exemplary purposes, only.\n",
-                   "Use at your own risk!\n"))
-    pubhashhex <- decodeHex(pubhash)
-    base58CheckEncode(pubhashhex)
+    PubHash2BchAdr(pubhash)
 }
 #' Decoding of a hex string
 #'
@@ -60,7 +78,7 @@ PubHash2BtcAdr <- function(pubhash){
 #' @param s \code{character}, the hex string.
 #'
 #' @return \code{list}
-#' @family BtcAdresses
+#' @family BchAdresses
 #' @author Bernhard Pfaff
 #' @references \url{https://en.bitcoin.it/wiki/Wallet_import_format},\cr
 #' \url{https://en.bitcoin.it/wiki/Address}
@@ -82,7 +100,7 @@ decodeHex <- function(s){
 #' @param hex1 \code{character}, a hex string.
 #' @param hex2 \code{character}, a hex string.
 #' @return \code{list}
-#' @family BtcAdresses
+#' @family BchAdresses
 #' @author Bernhard Pfaff
 #' @references \url{https://en.bitcoin.it/wiki/Wallet_import_format},\cr
 #' \url{https://en.bitcoin.it/wiki/Address}
@@ -107,7 +125,7 @@ concatHex <- function(hex1, hex2){
 #' @param x \code{character}, string in hex format.
 #'
 #' @return \code{character}, the encoded string.
-#' @family BtcAdresses
+#' @family BchAdresses
 #' @author Bernhard Pfaff
 #' @references \url{https://en.bitcoin.it/wiki/Wallet_import_format},\cr
 #' \url{https://en.bitcoin.it/wiki/Address},\cr
@@ -143,7 +161,7 @@ base58CheckEncode <- function(x){
 #' @param x \code{character}, string in hex format.
 #'
 #' @return \code{list}, the decoded elements of the string.
-#' @family BtcAdresses
+#' @family BchAdresses
 #' @author Bernhard Pfaff
 #' @references \url{https://en.bitcoin.it/wiki/Wallet_import_format},\cr
 #' \url{https://en.bitcoin.it/wiki/Address},\cr
@@ -172,7 +190,7 @@ base58CheckDecode <- function(x){
     }
     decodeHex(shex)
 }
-#' BTC hash256
+#' BCH hash256
 #'
 #' This function returns the hash by applying the \code{sha256} hashing
 #' algorithm twice to a \code{raw} object.
@@ -180,7 +198,7 @@ base58CheckDecode <- function(x){
 #' @param d \code{raw}, vector.
 #'
 #' @return \code{character}, the value of \code{d} hashed twice.
-#' @family BtcAdresses
+#' @family BchAdresses
 #' @author Bernhard Pfaff
 #' @references \url{https://en.bitcoin.it/wiki/Address}
 #' @name hash256
@@ -201,7 +219,7 @@ hash256 <- function(d){
     d2 <- decodeHex(paste(d2, collapse = ":"))
     d2
 }
-#' BTC hash160
+#' BCH hash160
 #'
 #' This function returns the hash by applying the \code{sha256} hashing
 #' first and then to the resulting hash the \code{ripemd160} algorithm.
@@ -210,7 +228,7 @@ hash256 <- function(d){
 #'
 #' @return \code{character}, the value of \code{d} hashed with
 #' \code{sha256} and \code{ripemd160}.
-#' @family BtcAdresses
+#' @family BchAdresses
 #' @author Bernhard Pfaff
 #' @references \url{https://en.bitcoin.it/wiki/Address}
 #' @name hash160

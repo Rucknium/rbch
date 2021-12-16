@@ -2,7 +2,7 @@
 % Please edit documentation in R/BtcAddresses.R
 \name{hash256}
 \alias{hash256}
-\title{BTC hash256}
+\title{BCH hash256}
 \usage{
 hash256(d)
 }
@@ -20,18 +20,20 @@ algorithm twice to a \code{raw} object.
 \url{https://en.bitcoin.it/wiki/Address}
 }
 \seealso{
-Other BtcAdresses: 
+Other BchAdresses: 
+\code{\link{BCHADR-class}},
 \code{\link{BTCADR-class}},
-\code{\link{PubHash2BtcAdr}()},
+\code{\link{PubHash2BchAdr}()},
 \code{\link{PubKey2PubHash}()},
 \code{\link{base58CheckDecode}()},
 \code{\link{base58CheckEncode}()},
 \code{\link{concatHex}()},
 \code{\link{decodeHex}()},
 \code{\link{hash160}()},
+\code{\link{validBchAdr}()},
 \code{\link{validBtcAdr}()}
 }
 \author{
 Bernhard Pfaff
 }
-\concept{BtcAdresses}
+\concept{BchAdresses}

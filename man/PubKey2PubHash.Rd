@@ -23,18 +23,20 @@ from a 512-bit public key by using the \code{hash160()} function.
 \url{https://en.bitcoin.it/wiki/Address}
 }
 \seealso{
-Other BtcAdresses: 
+Other BchAdresses: 
+\code{\link{BCHADR-class}},
 \code{\link{BTCADR-class}},
-\code{\link{PubHash2BtcAdr}()},
+\code{\link{PubHash2BchAdr}()},
 \code{\link{base58CheckDecode}()},
 \code{\link{base58CheckEncode}()},
 \code{\link{concatHex}()},
 \code{\link{decodeHex}()},
 \code{\link{hash160}()},
 \code{\link{hash256}()},
+\code{\link{validBchAdr}()},
 \code{\link{validBtcAdr}()}
 }
 \author{
 Bernhard Pfaff
 }
-\concept{BtcAdresses}
+\concept{BchAdresses}
