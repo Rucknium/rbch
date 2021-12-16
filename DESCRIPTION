@@ -1,8 +1,9 @@
 Package: rbch
 Title: Bitcoin Cash (BCH) API
-Version: 0.1-5
-Authors@R: c(person(given = "Rucknium", email = "Rucknium@protonmail.com", role = c("aut", "cre")),
-             person("Bernhard", "Pfaff", email = "bernhard@pfaffikus.de", role = c("aut", "cre")))
+Version: 0.1
+Authors@R: c(person(given = "Rucknium", email = "Rucknium@protonmail.com", role = c("cre", "aut", "cph")),
+             person("Bernhard", "Pfaff", email = "bernhard@pfaffikus.de", role = c("aut", "cph"), 
+             comment = "Author of rbtc, the package that rbch is originally based on."))
 Description: Implementation of the RPC-JSON API for Bitcoin Cash (BCH) and utility functions for address creation and content analysis of its blockchain.
 Depends: R (>= 3.4.0)
 License: GPL-3
@@ -11,6 +12,5 @@ LazyData: true
 RoxygenNote: 7.1.1
 Imports: methods, rjson, httr, openssl, gmp
 NeedsCompilation: no
-Packaged: 2018-09-04 12:43:26 UTC; pfaffb
-Author: Rucknium [aut, cre], Bernhard Pfaff [aut, cre]
+Author: Rucknium [cre, aut, cph], Bernhard Pfaff [aut, cph]
 Maintainer: Rucknium <Rucknium@protonmail.com>
