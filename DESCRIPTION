@@ -1,16 +1,31 @@
 Package: rbch
 Title: Bitcoin Cash (BCH) API
 Version: 0.1
-Authors@R: c(person(given = "Rucknium", email = "Rucknium@protonmail.com", role = c("cre", "aut", "cph")),
-             person("Bernhard", "Pfaff", email = "bernhard@pfaffikus.de", role = c("aut", "cph"), 
-             comment = "Author of rbtc, the package that rbch is originally based on."))
-Description: Implementation of the RPC-JSON API for Bitcoin Cash (BCH) and utility functions for address creation and content analysis of its blockchain.
-Depends: R (>= 3.4.0)
+Authors@R: 
+    c(person(given = "Rucknium",
+             role = c("cre", "aut", "cph"),
+             email = "Rucknium@protonmail.com"),
+      person(given = "Bernhard",
+             family = "Pfaff",
+             role = c("aut", "cph"),
+             email = "bernhard@pfaffikus.de",
+             comment = "Creator of rbtc, the package that rbch is originally based on."))
+Author: Rucknium [cre, aut, cph], Bernhard Pfaff [aut, cph] (Creator of
+    rbtc, the package that rbch is originally based on.)
+Maintainer: Rucknium <Rucknium@protonmail.com>
+Description: Implementation of the RPC-JSON API for Bitcoin Cash (BCH) and
+    utility functions for address creation and content analysis of its
+    blockchain.
 License: GPL-3
+Depends: 
+    R (>= 3.4.0)
+Imports: 
+    gmp,
+    httr,
+    methods,
+    openssl,
+    rjson
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 7.1.1
-Imports: methods, rjson, httr, openssl, gmp
 NeedsCompilation: no
-Author: Rucknium [cre, aut, cph], Bernhard Pfaff [aut, cph]
-Maintainer: Rucknium <Rucknium@protonmail.com>
+RoxygenNote: 7.1.1

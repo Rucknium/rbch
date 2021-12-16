@@ -153,7 +153,7 @@ setMethod("isNull", signature = "ECPOINT", function(x){
 #' @param e1 point on elliptic curve, or integer
 #' @param e2 point on elliptic curve, or integer
 #' 
-#' @description The following operarations for EC points
+#' @description The following operations for EC points
 #' are available:
 #' \itemize{
 #' \item{doubleUp}{multiplying a point by itself}

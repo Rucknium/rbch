@@ -44,7 +44,7 @@ AND(x, y)
 \item{y}{integer}
 }
 \description{
-The following operarations for EC points
+The following operations for EC points
 are available:
 \itemize{
 \item{doubleUp}{multiplying a point by itself}

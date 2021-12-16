@@ -9,7 +9,7 @@ PubKey2PubHash(pubkey, mainnet = TRUE)
 \arguments{
 \item{pubkey}{\code{character}, the public key.}
 
-\item{mainnet}{\code{logical}, whether the WIF should correspond
+\item{mainnet}{\code{logical}, whether the key should correspond
 to the mainnet or testnet.}
 }
 \value{

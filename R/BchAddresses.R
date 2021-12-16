@@ -4,7 +4,7 @@
 #' from a 512-bit public key by using the \code{hash160()} function.
 #'
 #' @param pubkey \code{character}, the public key.
-#' @param mainnet \code{logical}, whether the WIF should correspond
+#' @param mainnet \code{logical}, whether the key should correspond
 #' to the mainnet or testnet.
 #'
 #' @return \code{character}, the hash of a public key
