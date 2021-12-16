@@ -5,16 +5,11 @@
 \alias{BTCADR-class}
 \title{S4 class BTCADR}
 \description{
-S4-class for BTC addresses, ordinarily created
-by a call to \code{createBtcAdr()}.
+S4-class for BTC addresses
 }
 \section{Slots}{
 
 \describe{
-\item{\code{privkey}}{\code{character}, the private key.}
-
-\item{\code{wif}}{\code{character}, the WIF.}
-
 \item{\code{pubkey}}{\code{character}, the 512-bit public key.}
 
 \item{\code{pubhash}}{\code{character}, the hashed public key.}

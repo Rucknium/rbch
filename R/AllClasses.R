@@ -142,101 +142,6 @@ setClass("ECPOINT", representation = list(
 validBtcAdr <- function(object){
     errors <- character()
     s <- unlist(strsplit("0123456789ABCDEF", ""))
-    # checks for private key
-    lprivkey <- nchar(object@privkey)
-    if (!identical(lprivkey, 64L)){
-        msg <- paste0("Private key must have 64 characters in total,\n",
-                      "but contains ",
-                      lprivkey,
-                      ".\n")
-        errors <- c(errors, msg)
-    }
-    cprivkey <- all(sapply(unlist(strsplit(object@privkey, "")),
-                           function(x) x %in% s)
-                    )
-    if (!cprivkey){
-        msg <- paste0("Private key must only contain the symbols:\n",
-                      "'0123456789ABCDEF'\n")
-        errors <- c(errors, msg)
-    }
-    pk <- Wif2PrivKey(object@wif)
-    if (!identical(pk, object@privkey)){
-        msg <- paste0("Private key and WIF do not coincice.")
-        errors <- c(errors, msg)
-    }
-    # checks for 1st character in WIF PubHash & BtcAdr
-    fcwif <- substr(object@wif, 1, 1)
-    fcpubhash <- substr(object@pubhash, 1, 2)
-    fcbtcadr <- substr(object@btcadr, 1, 1)
-    if (object@mainnet){
-        check1st <- identical(fcwif, "5")
-        if (!check1st){
-            msg <- paste0("WIF must start with '5' for mainnet.\n")
-            errors <- c(errors, msg)
-        }
-        check1st <- identical(fcpubhash, "00")
-        if (!check1st){
-            msg <- paste0("Hashed public key must start with '00'\n",
-                          "for mainnet.\n")
-            errors <- c(errors, msg)
-        }
-        check1st <- identical(fcbtcadr, "1")
-        if (!check1st){
-            msg <- paste0("BTC address must start with '1'\n",
-                          "for mainnet.\n")
-            errors <- c(errors, msg)
-        }
-    } else {
-        check1st <- identical(fcwif, "9")
-        if (!check1st){
-            msg <- paste0("WIF must start with '9'\n",
-                          "for testnet.\n")
-            errors <- c(errors, msg)
-        }
-        check1st <- identical(fcpubhash, "6F")
-        if (!check1st){
-            msg <- paste0("Hashed public key  must start with '6F'\n",
-                          "for testnet.\n")
-            errors <- c(errors, msg)
-        }
-        check1st <- (fcbtcadr == "n") || (fcbtcadr == "m")
-        if (!check1st){
-            msg <- paste0("BTC address must start with 'n/m'\n",
-                          "for testnet.\n")
-            errors <- c(errors, msg)
-        }
-    }
-    # checks on WIF
-    lwif <- nchar(object@wif)
-    if (!identical(lwif, 51L)){
-        msg <- paste0("WIF must have 51 characters in total,\n",
-                      "but contains ",
-                      lwif,
-                      ".\n")
-        errors <- c(errors, msg)
-    }
-    wifd <- base58CheckDecode(object@wif)
-    n <- length(wifd) - 4L
-    checksum1 <- utils::tail(wifd, 4)
-    wiff <- wifd[1:n]
-    wifh <- hash256(wiff)
-    checksum2 <- wifh[1:4]
-    if (!all(checksum1 == checksum2)){
-        msg <- paste0("WIF checksum checking error.\n")
-        errors <- c(errors, msg)
-    }
-    wifnet <- as.character(wifd[1])
-    if (object@mainnet){
-        if (!identical(wifnet, "80")){
-            msg <- paste0("WIF ist not compliant with mainnet.\n")
-            errors <- c(errors, msg)
-        }
-    } else {
-        if (!identical(wifnet, "ef")){
-            msg <- paste0("WIF ist not compliant with testnet.\n")
-            errors <- c(errors, msg)
-        }
-    }
     # checks on public key
     fcpubkey <- substr(object@pubkey, 1, 2)
     if (!identical(fcpubkey, "04")){
@@ -288,11 +193,7 @@ validBtcAdr <- function(object){
 #' @title S4 class BTCADR
 #'
 #' @description
-#' S4-class for BTC addresses, ordinarily created
-#' by a call to \code{createBtcAdr()}.
-#'
-#' @slot privkey \code{character}, the private key. 
-#' @slot wif \code{character}, the WIF.
+#' S4-class for BTC addresses
 #' @slot pubkey \code{character}, the 512-bit public key.
 #' @slot pubhash \code{character}, the hashed public key.
 #' @slot btcadr \code{character}, the BTC address.
@@ -306,8 +207,6 @@ validBtcAdr <- function(object){
 #' @export
 setClass("BTCADR",
          representation = list(
-             privkey = "character",
-             wif = "character",
              pubkey = "character",
              pubhash = "character",
              btcadr = "character",
