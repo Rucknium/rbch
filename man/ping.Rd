@@ -32,8 +32,7 @@ Other Network RPCs:
 \code{\link{getnettotals}()},
 \code{\link{getnetworkinfo}()},
 \code{\link{getpeerinfo}()},
-\code{\link{listbanned}()},
-\code{\link{setnetworkactive}()}
+\code{\link{listbanned}()}
 }
 \author{
 Bernhard Pfaff

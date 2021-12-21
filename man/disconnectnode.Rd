@@ -37,8 +37,7 @@ Other Network RPCs:
 \code{\link{getnetworkinfo}()},
 \code{\link{getpeerinfo}()},
 \code{\link{listbanned}()},
-\code{\link{ping}()},
-\code{\link{setnetworkactive}()}
+\code{\link{ping}()}
 }
 \author{
 Bernhard Pfaff

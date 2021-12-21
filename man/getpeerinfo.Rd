@@ -29,8 +29,7 @@ Other Network RPCs:
 \code{\link{getnettotals}()},
 \code{\link{getnetworkinfo}()},
 \code{\link{listbanned}()},
-\code{\link{ping}()},
-\code{\link{setnetworkactive}()}
+\code{\link{ping}()}
 }
 \author{
 Bernhard Pfaff
