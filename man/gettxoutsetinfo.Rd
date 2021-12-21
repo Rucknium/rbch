@@ -39,7 +39,6 @@ Other Blockchain RPCs:
 \code{\link{getrawmempool}()},
 \code{\link{gettxoutproof}()},
 \code{\link{gettxout}()},
-\code{\link{preciousblock}()},
 \code{\link{pruneblockchain}()},
 \code{\link{verifychain}()},
 \code{\link{verifytxoutproof}()}

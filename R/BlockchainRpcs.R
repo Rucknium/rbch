@@ -267,29 +267,6 @@ getchaintxstats <- function(con, nblocks = NULL, blockhash = NULL){
         rpcpost(con, "getchaintxstats")
     }
 }
-#' RPC-JSON API: preciousblock
-#'
-#' Treats a block as if it were received before others with the same work.
-#' A can override the effect of an earlier one. The effects of preciousblock
-#' are not retained across restarts.
-#'
-#' @param con object of class \code{CONRPC}.
-#' @param blockhash \code{character}, the hash of the block to mark as precious.
-#'
-#' @return A S4-object of class \code{ANSRPC}.
-#' @family Blockchain RPCs
-#' @author Bernhard Pfaff
-#' @references \url{https://bitcoin.org/en/developer-reference#preciousblock},
-#' \url{https://bitcoin.org/en/developer-reference#remote-procedure-calls-rpcs}
-#' @name preciousblock
-#' @aliases preciousblock
-#' @rdname preciousblock
-#' @export
-preciousblock <- function(con, blockhash){
-    bh <- as.character(blockhash)
-    rpcpost(con, "preciousblock",
-            unname(list("blockhash" = bh)))
-}
 #' RPC-JSON API: getmempoolentry
 #'
 #' Returns mempool data for given transaction.

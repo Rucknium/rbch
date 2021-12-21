@@ -4,7 +4,7 @@
 \alias{txfee}
 \title{Compute fee of a transaction}
 \usage{
-txfee(con, txid)
+txfee(con, txid = NULL, tx = NULL)
 }
 \arguments{
 \item{con}{\code{CONRPC}, configuration object.}
