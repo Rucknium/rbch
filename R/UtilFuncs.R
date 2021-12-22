@@ -307,30 +307,18 @@ utxoage <- function(con, txid,
 #' @name txfee
 #' @rdname txfee
 #' @export
-txfee <- function(con, txid = NULL, tx = NULL){
-    if ( is.null(txid) & is.null(tx) ) {
-        stop("Must provide either txid or tx.")
+txfee <- function(con, txid){
+    valo <- sum(utxovalue(con, txid))
+    txin <- txinids(con, txid)
+    n <- nrow(txin)
+    vali <- 0
+    for (i in 1:n) {
+        val <- utxovalue(con, txin[i, 1])[txin[i, 2]]
+        vali <- vali + val
     }
-    if ( !(is.null(txid) | is.null(tx)) ) {
-        stop("Must provide either txid or tx, but not both.")
-    }
-    if (!is.null(txid)) {
-        valo <- sum(utxovalue(con, txid))
-        txin <- txinids(con, txid)
-        n <- nrow(txin)
-        vali <- 0
-        for (i in 1:n){
-            val <- utxovalue(con, txin[i, 1])[txin[i, 2]]
-            vali <- vali + val
-        }
-        ans <- vali - valo
-    } else {
-        
-    }
-    
+    ans <- vali - valo
     ans
 }
-
 #' Compute fee in a block
 #'
 #' This function returns the fee of the coinbase transaction.

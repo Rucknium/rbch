@@ -10,7 +10,7 @@ verifychain(con, checklevel = NULL, nblocks = NULL)
 \item{con}{object of class \code{CONRPC}.}
 
 \item{checklevel}{\code{integer} (optional, 0-4, default=3),
-how thorough the block verification is.a json array of txids to filter.}
+how thorough the block verification is.}
 
 \item{nblocks}{\code{integer} (optional, default=6, 0=all),
 the number of blocks to check.}
