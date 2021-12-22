@@ -435,7 +435,7 @@ gettxoutproof <- function(con, txids, blockhash = NULL){
 #'
 #' @param con object of class \code{CONRPC}.
 #' @param checklevel \code{integer} (optional, 0-4, default=3),
-#' how thorough the block verification is.a json array of txids to filter.
+#' how thorough the block verification is.
 #' @param nblocks \code{integer} (optional, default=6, 0=all),
 #' the number of blocks to check.
 #'
