@@ -451,16 +451,16 @@ gettxoutproof <- function(con, txids, blockhash = NULL){
 verifychain <- function(con, checklevel = NULL, nblocks =  NULL){
     if (!is.null(checklevel) && is.null(nblocks)){
         ans <- rpcpost(con, "verifychain",
-                       list(checklevel = checklevel))
+                       unname(list(checklevel = checklevel)))
     }
     if (is.null(checklevel) && !is.null(nblocks)){
         ans <- rpcpost(con, "verifychain",
-                       list(nblocks = nblocks))
+                       unname(list(checklevel = 3, nblocks = nblocks)))
     }
     if (!is.null(checklevel) && !is.null(nblocks)){
         ans <- rpcpost(con, "verifychain",
-                       list(checklevel = checklevel,
-                            nblocks = nblocks))
+                       unname(list(checklevel = checklevel,
+                            nblocks = nblocks)))
     }
     if (is.null(checklevel) && is.null(nblocks)){
         ans <- rpcpost(con, "verifychain",
