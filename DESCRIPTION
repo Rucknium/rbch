@@ -18,7 +18,7 @@ Description: Implementation of the RPC-JSON API for Bitcoin Cash (BCH) and
     utility functions for address creation and content analysis of its
     blockchain.
 License: GPL-3
-URL: https://github.com/Rucknium/rbch
+URL: https://github.com/Rucknium/rbch, https://www.bitcoinunlimited.info
 BugReports: https://github.com/Rucknium/rbch/issues
 SystemRequirements: BCHunlimited (>= 1.9.2)
 Depends: 
