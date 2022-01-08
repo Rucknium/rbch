@@ -14,9 +14,10 @@ Authors@R:
 Author: Rucknium [cre, aut, cph] (<https://orcid.org/0000-0001-5999-8950>),
     Bernhard Pfaff [aut, cph] (Creator of rbtc, the package that rbch is originally based on.)
 Maintainer: Rucknium <Rucknium@protonmail.com>
-Description: Implementation of the RPC-JSON API for Bitcoin Cash (BCH) and
-    utility functions for address creation and content analysis of its
-    blockchain.
+Description: Issues RPC-JSON calls to 'bitcoind', the daemon of Bitcoin Cash (BCH), to
+    extract transaction data from the blockchain. BCH is a fork of Bitcoin that permits
+    a greater number of transactions per second. A BCH daemon is available under an MIT
+    license from the Bitcoin Unlimited website: <https://www.bitcoinunlimited.info>.
 License: GPL-3
 URL: https://github.com/Rucknium/rbch, https://www.bitcoinunlimited.info
 BugReports: https://github.com/Rucknium/rbch/issues
