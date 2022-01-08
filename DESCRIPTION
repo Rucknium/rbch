@@ -1,5 +1,5 @@
 Package: rbch
-Title: Bitcoin Cash (BCH) API
+Title: Extraction and Analysis of Data from the Bitcoin Cash (BCH) Blockchain
 Version: 0.1
 Authors@R: 
     c(person(given = "Rucknium",
