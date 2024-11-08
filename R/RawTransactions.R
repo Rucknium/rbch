@@ -2,8 +2,7 @@
 #'
 #' Returns the raw transaction data.
 #'
-#' @section: Details
-#' By default this function only works for mempool transactions.
+#' @description By default this function only works for mempool transactions.
 #' If the -txindex option is enabled, it also works for blockchain transactions.
 #' DEPRECATED: for now, it also works for transactions with unspent outputs.
 #' If verbose is 'true', returns an object with information about 'txid'.

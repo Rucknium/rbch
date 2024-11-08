@@ -32,11 +32,11 @@ Note that an unspent output that is spent in the mempool won't appear.
 Other Blockchain RPCs: 
 \code{\link{decodescript}()},
 \code{\link{getbestblockhash}()},
+\code{\link{getblock}()},
 \code{\link{getblockchaininfo}()},
 \code{\link{getblockcount}()},
 \code{\link{getblockhash}()},
 \code{\link{getblockheader}()},
-\code{\link{getblock}()},
 \code{\link{getchaintips}()},
 \code{\link{getchaintxstats}()},
 \code{\link{getdifficulty}()},

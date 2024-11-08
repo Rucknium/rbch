@@ -17,18 +17,16 @@ getblock(con, blockhash, verbosity = c("l1", "l0", "l2"))
 A S4-object of class \code{ANSRPC}.
 }
 \description{
-Returns information of a block hash. The returned level of details depends on the
-argument \code{verbosity}.
-}
-\section{}{
- Details
 If verbosity is 'l0', returns a string that is serialized,
 hex-encoded data for block 'hash'.
 If verbosity is 'l1' (the default), returns an object with information about block <hash>.
 If verbosity is 'l2', returns an object with information about block <hash> and
 information about each transaction.
 }
-
+\details{
+Returns information of a block hash. The returned level of details depends on the
+argument \code{verbosity}.
+}
 \references{
 \url{https://bitcoin.org/en/developer-reference#getblock},
 \url{https://bitcoin.org/en/developer-reference#remote-procedure-calls-rpcs}
@@ -49,9 +47,9 @@ Other Blockchain RPCs:
 \code{\link{getmempoolentry}()},
 \code{\link{getmempoolinfo}()},
 \code{\link{getrawmempool}()},
+\code{\link{gettxout}()},
 \code{\link{gettxoutproof}()},
 \code{\link{gettxoutsetinfo}()},
-\code{\link{gettxout}()},
 \code{\link{pruneblockchain}()},
 \code{\link{verifychain}()},
 \code{\link{verifytxoutproof}()}

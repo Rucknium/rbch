@@ -156,11 +156,11 @@ setMethod("isNull", signature = "ECPOINT", function(x){
 #' @description The following operations for EC points
 #' are available:
 #' \itemize{
-#' \item{doubleUp}{multiplying a point by itself}
-#' \item{+}{point addition}
-#' \item{leftmostBit}{highest bit value of an integer}
-#' \item{AND}{logical and-operator for two integers}
-#' \item{*}{multiplication of an integer scalar with an EC point}
+#' \item doubleUp multiplying a point by itself
+#' \item + point addition
+#' \item leftmostBit highest bit value of an integer
+#' \item AND logical and-operator for two integers
+#' \item * multiplication of an integer scalar with an EC point
 #' }
 #' @family EllipticCurve
 #' @author Bernhard Pfaff

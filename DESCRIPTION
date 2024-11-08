@@ -1,9 +1,10 @@
 Package: rbch
-Version: 0.1-1
-Date: 2022-01-08
-Title: Extraction and Analysis of Data from the Bitcoin Cash (BCH) Blockchain
+Version: 0.1-2
+Date: 2024-09-27
+Title: Extraction and Analysis of Data from the Bitcoin Cash (BCH)
+        Blockchain
 Authors@R: 
-    c(person(given = "Rucknium",
+    c(person(family = "Rucknium",
              role = c("cre", "aut", "cph"),
              email = "Rucknium@protonmail.com",
              comment = c(ORCID = "0000-0001-5999-8950")),
@@ -13,23 +14,20 @@ Authors@R:
              email = "bernhard@pfaffikus.de",
              comment = "Creator of rbtc, the package that rbch is originally based on."))
 Author: Rucknium [cre, aut, cph] (<https://orcid.org/0000-0001-5999-8950>),
-    Bernhard Pfaff [aut, cph] (Creator of rbtc, the package that rbch is originally based on.)
+  Bernhard Pfaff [aut, cph] (Creator of rbtc, the package that rbch is
+    originally based on.)
 Maintainer: Rucknium <Rucknium@protonmail.com>
 Description: Issues RPC-JSON calls to 'bitcoind', the daemon of Bitcoin Cash (BCH), to
     extract transaction data from the blockchain. BCH is a fork of Bitcoin that permits
     a greater number of transactions per second. A BCH daemon is available under an MIT
     license from the Bitcoin Unlimited website <https://www.bitcoinunlimited.info>.
 License: GPL-3
-URL: https://github.com/Rucknium/rbch, https://www.bitcoinunlimited.info
+URL: https://github.com/Rucknium/rbch,
+        https://www.bitcoinunlimited.info
 BugReports: https://github.com/Rucknium/rbch/issues
 SystemRequirements: BCHunlimited (>= 1.9.2)
-Depends: 
-    R (>= 3.4.0)
-Imports: 
-    gmp,
-    httr,
-    methods,
-    openssl,
-    rjson
+Depends: R (>= 3.4.0)
+Imports: gmp, httr, methods, openssl, rjson
 NeedsCompilation: no
-RoxygenNote: 7.1.1
+RoxygenNote: 7.3.2
+Packaged: 2024-09-27 18:44:23 UTC; test

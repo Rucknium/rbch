@@ -35,10 +35,10 @@ returns an Object with information about blockheader <hash>.
 Other Blockchain RPCs: 
 \code{\link{decodescript}()},
 \code{\link{getbestblockhash}()},
+\code{\link{getblock}()},
 \code{\link{getblockchaininfo}()},
 \code{\link{getblockcount}()},
 \code{\link{getblockhash}()},
-\code{\link{getblock}()},
 \code{\link{getchaintips}()},
 \code{\link{getchaintxstats}()},
 \code{\link{getdifficulty}()},
@@ -47,9 +47,9 @@ Other Blockchain RPCs:
 \code{\link{getmempoolentry}()},
 \code{\link{getmempoolinfo}()},
 \code{\link{getrawmempool}()},
+\code{\link{gettxout}()},
 \code{\link{gettxoutproof}()},
 \code{\link{gettxoutsetinfo}()},
-\code{\link{gettxout}()},
 \code{\link{pruneblockchain}()},
 \code{\link{verifychain}()},
 \code{\link{verifytxoutproof}()}

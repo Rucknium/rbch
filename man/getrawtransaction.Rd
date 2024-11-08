@@ -17,10 +17,6 @@ getrawtransaction(con, txid, verbose = FALSE)
 A S4-object of class \code{ANSRPC}.
 }
 \description{
-Returns the raw transaction data.
-}
-\section{}{
- Details
 By default this function only works for mempool transactions.
 If the -txindex option is enabled, it also works for blockchain transactions.
 DEPRECATED: for now, it also works for transactions with unspent outputs.
@@ -28,7 +24,9 @@ If verbose is 'true', returns an object with information about 'txid'.
 If verbose is 'false' or omitted, returns a string that is serialized,
 hex-encoded data for 'txid'.
 }
-
+\details{
+Returns the raw transaction data.
+}
 \references{
 \url{https://bitcoin.org/en/developer-reference#getblock},
 \url{https://bitcoin.org/en/developer-reference#remote-procedure-calls-rpcs}

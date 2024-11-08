@@ -23,11 +23,11 @@ Returns the proof-of-work difficulty as a multiple of the minimum difficulty.
 Other Blockchain RPCs: 
 \code{\link{decodescript}()},
 \code{\link{getbestblockhash}()},
+\code{\link{getblock}()},
 \code{\link{getblockchaininfo}()},
 \code{\link{getblockcount}()},
 \code{\link{getblockhash}()},
 \code{\link{getblockheader}()},
-\code{\link{getblock}()},
 \code{\link{getchaintips}()},
 \code{\link{getchaintxstats}()},
 \code{\link{getmempoolancestors}()},
@@ -35,9 +35,9 @@ Other Blockchain RPCs:
 \code{\link{getmempoolentry}()},
 \code{\link{getmempoolinfo}()},
 \code{\link{getrawmempool}()},
+\code{\link{gettxout}()},
 \code{\link{gettxoutproof}()},
 \code{\link{gettxoutsetinfo}()},
-\code{\link{gettxout}()},
 \code{\link{pruneblockchain}()},
 \code{\link{verifychain}()},
 \code{\link{verifytxoutproof}()}
